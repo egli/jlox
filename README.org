@@ -10,3 +10,9 @@ Implementation of jlox the language from [[https://craftinginterpreters.com/][Cr
 #+begin_src shell
   java -jar jlox-1.0-SNAPSHOT.jar
 #+end_src
+
+* Generate AST Classes
+#+begin_src shell
+  java -cp target/jlox-1.0-SNAPSHOT.jar com.craftinginterpreters.tool.GenerateAst src/main/java/com/craftinginterpreters/lox
+#+end_src
+
