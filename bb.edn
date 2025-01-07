@@ -1,0 +1,15 @@
+{:tasks
+ {build {:doc "Build the interpreter"
+         :task (shell "mvn package")}
+
+  jlox {:doc "Run the interpreter"
+        :task (shell "java -jar target/jlox-1.0-SNAPSHOT.jar")}
+
+  generate-ast {:doc "Generate the AST Classes"
+                :task (shell "java -cp target/jlox-1.0-SNAPSHOT.jar com.craftinginterpreters.tool.GenerateAst src/main/java/com/craftinginterpreters/lox")}
+
+  clean {:doc "Clean up"
+         :task (shell "mvn clean")}
+
+  }
+ }
