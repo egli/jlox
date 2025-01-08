@@ -3,16 +3,16 @@ Implementation of jlox the language from [[https://craftinginterpreters.com/][Cr
 
 * Build
 #+begin_src shell
-  mvn -B package 
+  just build
 #+end_src
 
 * Run
 #+begin_src shell
-  java -jar jlox-1.0-SNAPSHOT.jar
+  just run
 #+end_src
 
 * Generate AST Classes
 #+begin_src shell
-  java -cp target/jlox-1.0-SNAPSHOT.jar com.craftinginterpreters.tool.GenerateAst src/main/java/com/craftinginterpreters/lox
+  just generate-ast
 #+end_src
 
