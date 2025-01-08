@@ -1,4 +1,6 @@
-jar := "target/jlox-1.0-SNAPSHOT.jar"
+# grab the version from the pom.xml
+version := `xmllint --xpath "//*[local-name()='project']/*[local-name()='version']/text()" pom.xml`
+jar := "target/jlox-" + version + ".jar"
 
 alias lox := run
 
