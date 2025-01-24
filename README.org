@@ -1,5 +1,7 @@
+* jlox
 
-Implementation of jlox the language from [[https://craftinginterpreters.com/][Crafting Interpreters]]
+A (wip) implementation of the [[https://github.com/munificent/craftinginterpreters][lox programming language]] from the
+excellent book [[https://craftinginterpreters.com/][Crafting Interpreters]] by [[https://stuffwithstuff.com/][Robert Nystrom]].
 
 * Build
 #+begin_src shell
@@ -15,4 +17,16 @@ Implementation of jlox the language from [[https://craftinginterpreters.com/][Cr
 #+begin_src shell
   just generate-ast
 #+end_src
+
+* Playing with a real lox interpreter
+
+To play with a /real/ lox interpreter checkout the [[https://github.com/munificent/craftinginterpreters][book repository]],
+install an old version of Dart (I used 2.19.6), which you can get from
+the [[https://dart.dev/get-dart/archive][Dart archive]] and build both interpreters using ~make~.
+
+* References
+
+- Book :: [[https://craftinginterpreters.com/][Crafting Interpreters]]
+- Blog post :: [[http://journal.stuffwithstuff.com/2020/04/05/crafting-crafting-interpreters/][Crafting "Crafting Interpreters"]]
+- Wiki :: [[https://github.com/munificent/craftinginterpreters/wiki/Lox-implementations][Lox implementations]]
 
