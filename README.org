@@ -13,6 +13,10 @@ excellent book [[https://craftinginterpreters.com/][Crafting Interpreters]] by [
   just run
 #+end_src
 
+* Status
+
+The source code is complete up to the end of [[https://craftinginterpreters.com/representing-code.html#top][Chapter 5]].
+
 * Generate AST Classes
 #+begin_src shell
   just generate-ast
