@@ -1,0 +1,43 @@
+// a one-to-one port of the Newton's square roots function as
+// implemented in SICP, chapter 1.1.7 on page 21
+
+fun abs(x) {
+  if (x > 0) {
+    return x;
+  } else {
+    return -x;
+  }
+}
+
+fun average (x, y) {
+  return (x + y) / 2;
+}
+
+fun square (x) {
+  return x*x;
+}
+
+fun improve (guess, x) {
+  var quotient = x / guess;
+  return average(guess, quotient);
+}
+
+fun good_enough(guess, x) {
+  var difference = square(guess) - x;
+  return abs(difference) < 0.001;
+}
+
+fun sqrt_iter (guess, x) {
+  if (good_enough(guess, x)) {
+    return guess;
+  } else  {
+    var better_guess = improve(guess, x);
+    return sqrt_iter(better_guess, x);
+  }
+}
+
+fun sqrt(x) {
+  return sqrt_iter(1.0, x);
+}
+
+print sqrt(81);
