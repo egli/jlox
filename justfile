@@ -5,6 +5,7 @@ jar := "target/jlox-" + version + ".jar"
 alias lox := run
 
 # Display all avaliable recipes
+[private]
 help:
     @just --list --unsorted
 
