@@ -15,7 +15,7 @@ build:
 
 # Run the interpreter
 run:
-    java -jar {{ jar }}
+    @java -jar {{ jar }}
 
 # Generate the AST Classes
 generate-ast:
