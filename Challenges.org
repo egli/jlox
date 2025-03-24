@@ -35,6 +35,11 @@ runtime error for this case.
 #+end_quote
 
 *** What happens right now if you divide a number by zero?
+#+begin_src lox
+  > 1/0==1/0
+  true
+#+end_src
+
 Java, the underlying implementation language, returns Infinity if you
 divide a float by 0. This apparently [[https://stackoverflow.com/a/12954429][due to the IEEE-754 standard]].
 This stamdard encourages robust programs and throwing exceptions is
