@@ -1,0 +1,72 @@
+
+* Evaluating Expressions
+
+** Comparisons on types other than numbers
+#+begin_quote
+Would you extend Lox to support comparing other types?
+#+end_quote
+
+No
+
+#+begin_quote
+Justify your choices and compare them to other languages.
+#+end_quote
+
+While comparisons between different data types enables you to define a
+total ordering in heterogeneous collections, it is mostly unintuitive
+(what does "apple" < 42 mean?), adds complexity and makes the code
+harder to reason about.
+
+Seems like old Python and Javascript allows it while most others
+discourage if not downright disallow it.
+
+** Enable "scone" + 4
+See branch excercise/7.2
+
+** Divide a number by zero
+#+begin_quote
+What happens right now if you divide a number by zero? What do you
+think should happen? Justify your choice. How do other languages you
+know handle division by zero, and why do they make the choices they
+do?
+
+Change the implementation in visitBinaryExpr() to detect and report a
+runtime error for this case.
+#+end_quote
+
+*** What happens right now if you divide a number by zero?
+Java, the underlying implementation language, returns Infinity if you
+divide a float by 0. This apparently [[https://stackoverflow.com/a/12954429][due to the IEEE-754 standard]].
+This stamdard encourages robust programs and throwing exceptions is
+apprently counter to that.
+
+*** What do you think should happen?
+I think it should throw an exception.
+
+*** How do other languages handle division by zero?
+Different languages handle division by zero in these main ways:
+
+1. Runtime Exception (Java, Python, C#, Common Lisp (sort of)):
+- Throws ArithmeticException or ZeroDivisionError
+- Clear indication of error
+- Allows error handling via try-catch
+
+2. Special Values (JavaScript, C/C++):
+- Returns Infinity or NaN for floating-point
+- Fast execution without exception overhead
+- Matches IEEE 754 floating-point standard
+- Can silently propagate errors
+
+3. Undefined Behavior (C/C++ for integer division):
+- No guarantees about program behavior
+- Maximizes performance
+- Puts responsibility on programmer
+
+Most modern languages choose runtime exceptions because they:
+- Make errors explicit
+- Prevent silent failure
+- Aid debugging
+- Follow principle of *fail-fast*
+
+*** Change the implementation to report a runtime error
+See excercise/7.3 for the implementation.
