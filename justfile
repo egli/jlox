@@ -14,8 +14,12 @@ build:
     mvn clean package
 
 # Run the interpreter
-run:
+repl:
     @java -jar {{ jar }}
+
+# Run the interpreter with a file
+run file:
+    @java -jar {{ jar }} {{ file }}
 
 # Generate the AST Classes
 generate-ast:
