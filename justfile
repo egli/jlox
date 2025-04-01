@@ -11,7 +11,7 @@ help:
 
 # Build the interpreter
 build:
-    mvn package
+    mvn clean package
 
 # Run the interpreter
 run:
