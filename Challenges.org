@@ -75,3 +75,75 @@ Most modern languages choose runtime exceptions because they:
 
 *** Change the implementation to report a runtime error
 See excercise/7.3 for the implementation.
+* Statements and State
+** TODO REPL support
+The REPL no longer supports entering a single expression and
+automatically printing its result value. That’s a drag. Add support to
+the REPL to let users type in both statements and expressions. If they
+enter a statement, execute it. If they enter an expression, evaluate
+it and display the result value.
+
+*** Solution
+Either have to do a "cover grammar" as he calls it, i.e. a grammer
+that allows both statements and expressions.
+
+Or catch an parse error and try to interpret it as an expression 
+
+** TODO Variable initialization
+Maybe you want Lox to be a little more explicit about variable
+initialization. Instead of implicitly initializing variables to nil,
+make it a runtime error to access a variable that has not been
+initialized or assigned to, as in:
+
+#+begin_src lox
+// No initializers.
+var a;
+var b;
+
+a = "assigned";
+print a; // OK, was assigned first.
+
+print b; // Error!
+#+end_src
+
+*** Solution
+Use some undef value to indicate a variable has not been assigned a
+value.
+
+** DONE Use variable in declaration initialization 
+CLOSED: [2025-04-10 Do 14:32]
+What does the following program do?
+
+#+begin_src lox
+var a = 1;
+{
+  var a = a + 2;
+  print a;
+}
+#+end_src
+
+What did you expect it to do? Is it what you think it should do? What
+does analogous code in other languages you are familiar with do? What
+do you think users will expect this to do?
+
+#+begin_src clojure
+> (let [a 1] (let [a (+ a 2)] a))
+3
+#+end_src
+
+In clojure (and probably any scheme) it works quite naturally.
+
+#+begin_src python
+def inner():
+  global a
+  a = a + 2
+  print(a)
+
+a = 1
+inner()
+#+end_src
+
+Python seems a bit weird as it doesn't really have block scope
+independent of functions. If you use assign a variable in a function
+that exists outside you have to declare as global. Maybe to avoid
+mistakes.
