@@ -84,10 +84,14 @@ enter a statement, execute it. If they enter an expression, evaluate
 it and display the result value.
 
 *** Solution
-Either have to do a "cover grammar" as he calls it, i.e. a grammer
-that allows both statements and expressions.
-
-Or catch an parse error and try to interpret it as an expression 
+1. Either have to do a "cover grammar" as he calls it, i.e. a grammer
+   that allows both statements and expressions.
+2. Or catch an parse error and try to interpret it as an expression
+3. Or, better yet, change the Stmt interface so that the visitor
+   returns an Object, juts like the Expr visitor. Then make sure the
+   ExprStmt returns the value, the BlockStmt returns the value of the
+   last statement and all the other statements return null. Then just
+   print the value if one was returned.
 
 ** TODO Variable initialization
 Maybe you want Lox to be a little more explicit about variable
