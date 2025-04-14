@@ -114,7 +114,7 @@ print b; // Error!
 Use some undef value to indicate a variable has not been assigned a
 value.
 
-** DONE Use variable in declaration initialization 
+** DONE Use variable in declaration initialization
 CLOSED: [2025-04-10 Do 14:32]
 What does the following program do?
 
@@ -151,3 +151,30 @@ Python seems a bit weird as it doesn't really have block scope
 independent of functions. If you use assign a variable in a function
 that exists outside you have to declare as global. Maybe to avoid
 mistakes.
+
+* Control Flow
+
+** Branching statements using functions and dynamic dispatch
+A few chapters from now, when Lox supports first-class functions and
+dynamic dispatch, we technically won’t need branching statements built
+into the language. Show how conditional execution can be implemented
+in terms of those. Name a language that uses this technique for its
+control flow.
+
+** Looping using functions and dynamic dispatch
+Likewise, looping can be implemented using those same tools, provided
+our interpreter supports an important optimization. What is it, and
+why is it necessary? Name a language that uses this technique for
+iteration.
+
+** Break statement
+Unlike Lox, most other C-style languages also support break and
+continue statements inside loops. Add support for break statements.
+
+The syntax is a break keyword followed by a semicolon. It should be a
+syntax error to have a break statement appear outside of any enclosing
+loop. At runtime, a break statement causes execution to jump to the
+end of the nearest enclosing loop and proceeds from there. Note that
+the break may be nested inside other blocks and if statements that
+also need to be exited.
+
