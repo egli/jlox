@@ -1,0 +1,13 @@
+print "Testing if statements";
+
+if (100>1) {
+  print "100 is larger than 1";
+ } else {
+  print "100 is smaller than 1";
+ }
+
+if (100<1) {
+  print "100 is smaller than 1";
+ } else {
+  print "100 is larger than 1";
+ }
