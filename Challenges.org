@@ -228,10 +228,15 @@ dynamic dispatch on the class. Something along the lines of
 Unlike Lox, most other C-style languages also support break and
 continue statements inside loops. Add support for break statements.
 
-The syntax is a break keyword followed by a semicolon. It should be a
-syntax error to have a break statement appear outside of any enclosing
-loop. At runtime, a break statement causes execution to jump to the
-end of the nearest enclosing loop and proceeds from there. Note that
-the break may be nested inside other blocks and if statements that
-also need to be exited.
+Use exceptions to jump out of a while loop.
+
+Add a Break Stmt. Parse it in the parser. The visit method of the
+break statement should throw a Break Exception. This exception is then
+caught in the visitWhileStmt method.
+
+If the Break Exception is thrown outside of a loop then the enhanced
+interpret method of the Interpreter class wil catch it and report a
+run time error.
+
+See the excercise/9.3 branch for the implementation.
 
