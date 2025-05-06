@@ -15,7 +15,7 @@ excellent book [[https://craftinginterpreters.com/][Crafting Interpreters]] by [
 
 * Status
 
-The source code is complete up to the end of [[https://craftinginterpreters.com/statements-and-state.html][Chapter 8]].
+The source code is complete up to the end of [[https://craftinginterpreters.com/control-flow.html][Chapter 9]].
 
 * Generate AST Classes
 #+begin_src shell
