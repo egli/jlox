@@ -155,17 +155,74 @@ mistakes.
 * Control Flow
 
 ** Branching statements using functions and dynamic dispatch
-A few chapters from now, when Lox supports first-class functions and
-dynamic dispatch, we technically won’t need branching statements built
-into the language. Show how conditional execution can be implemented
-in terms of those. Name a language that uses this technique for its
-control flow.
+
+*** First-class functions
+
+This concept can be expressed very elegantly in Clojure:
+
+#+begin_src clojure
+((get {true then-fn false else-fn} condition) args)
+;; or more idiomatically
+(({true then-fn false else-fn} condition) args)
+#+end_src
+
+*** Dynamic dispatch
+
+This is used in Smalltalk - true and false are singleton objects of
+classes True and False, and control structures like ifTrue:ifFalse:
+are implemented as messages to these boolean objects.
+
+#+begin_src python
+  class TrueValue:
+      def execute(self):
+          return then_fn()
+
+  class FalseValue:
+      def execute(self):
+          return else_fn()
+
+  condition = TrueValue
+
+  condition.execute()
+#+end_src
 
 ** Looping using functions and dynamic dispatch
-Likewise, looping can be implemented using those same tools, provided
-our interpreter supports an important optimization. What is it, and
-why is it necessary? Name a language that uses this technique for
-iteration.
+
+*** First-class functions
+
+#+begin_src scheme
+  (define (my-while condition body)
+    (when (condition)
+      (body)
+      (my-while condition body)))
+#+end_src
+
+**** Provided the interpreter supports an important optimization
+
+Most likely this technique requires tail-call-optimization to avoid
+overflowing the call stack.
+
+Scheme uses this technique.
+
+*** Dynamic dispatch
+
+We could have a class that encapsulates the state of the loop and do
+dynamic dispatch on the class. Something along the lines of
+
+#+begin_src python
+  class Continue:
+      def loop(self, condition, body):
+          body()
+          if condition:
+              return self  # continue looping
+          else:
+              return Break()
+
+  class Break:
+      def loop(self, condition, body):
+          return self  # stop looping
+#+end_src
+
 
 ** Break statement
 Unlike Lox, most other C-style languages also support break and
