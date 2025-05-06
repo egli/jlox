@@ -9,3 +9,12 @@ class RuntimeError extends RuntimeException {
     }
 
 }
+
+class Break extends RuntimeException {
+    final Token token;
+
+    Break(Token token) {
+	super();
+	this.token = token;
+    }
+}

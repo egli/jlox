@@ -1,0 +1,14 @@
+print "Testing break statements";
+
+var i = 5;
+
+while (i >= 0) {
+  print i;
+  break;
+}
+
+print "Testing a break statement outside of a loop";
+if (i >= 0) {
+  print i;
+  break;
+}
