@@ -1,0 +1,21 @@
+print "Testing while statements";
+
+var i = 5;
+
+while (i >= 0) {
+  print i;
+  i = i - 1;
+}
+
+print "Testing a convoluted while statement";
+
+var j = 5;
+var strange = true;
+
+while (j >= 0 and strange) {
+  print j;
+  if (j == 0) {
+    strange = false;
+  }
+  j = j - 1;
+}
