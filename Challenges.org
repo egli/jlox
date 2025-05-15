@@ -153,8 +153,7 @@ that exists outside you have to declare as global. Maybe to avoid
 mistakes.
 
 * Control Flow
-
-** Branching statements using functions and dynamic dispatch
+** DONE Branching statements using functions and dynamic dispatch
 
 *** First-class functions
 
@@ -186,7 +185,7 @@ are implemented as messages to these boolean objects.
   condition.execute()
 #+end_src
 
-** Looping using functions and dynamic dispatch
+** DONE Looping using functions and dynamic dispatch
 
 *** First-class functions
 
@@ -223,8 +222,7 @@ dynamic dispatch on the class. Something along the lines of
           return self  # stop looping
 #+end_src
 
-
-** Break statement
+** DONE Break statement
 Unlike Lox, most other C-style languages also support break and
 continue statements inside loops. Add support for break statements.
 
