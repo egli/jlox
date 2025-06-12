@@ -323,6 +323,27 @@ Contrary to variable declaration the function declaration creates the
 value and the binding in one atomic step, so the variable refering to
 the function is initialized right away
 
+Why is the following code not working?
+
+#+begin_src lox
+  fun print_foo() {
+    print "foo";
+  }
+
+  {
+    fun foo() {
+      print_foo();
+    }
+
+    foo();
+
+    fun print_foo() {
+      print "bar";
+    }
+
+    foo();
+  }
+#+end_src
 
 ** DONE How do other languages handle self-references in initializers for local vars
 CLOSED: [2025-06-12 Do 14:16]

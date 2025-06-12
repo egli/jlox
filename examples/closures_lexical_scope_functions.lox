@@ -1,0 +1,20 @@
+fun print_foo() {
+  print "foo";
+}
+
+{
+  fun foo() {
+    print_foo();
+  }
+
+  // we get what we expect, namely "foo"
+  foo();
+
+  fun print_foo() {
+    print "bar";
+  }
+
+  // here, we still expect "foo", as we fixed this with the static
+  // name resolving. Suprisingly however we get "bar"
+  foo();
+}
