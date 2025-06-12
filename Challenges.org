@@ -287,7 +287,8 @@ occurring in an expression statement:
   fun () {};
 #+end_src
 
-** TODO Scope of function parameters
+** DONE Scope of function parameters
+CLOSED: [2025-06-12 Do 10:58]
 Is this program valid?
 
 #+begin_src lox
@@ -301,6 +302,15 @@ local variables, or in an outer scope? What does Lox do? What about
 other languages you are familiar with? What do you think a language
 should do?
 
+Yes, of course it is valid. The params are defined in the very same
+environment as the local variables. AFAIK all languages do it that
+way. I think it should be that way. Maybe you could have a more
+explicit scoping with let blocks.
+
+Well, hold it in Scheme you have an environment for the function but
+defining local variables requires a let block which of course creates
+a new environment. So in Scheme local vars and function parameters
+live in different environments.
 * Resolving and Binding
 
 ** TODO Eager binding of function names
