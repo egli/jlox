@@ -1,0 +1,9 @@
+class Omelette {}
+class Filling {}
+var omelette = Omelette();
+
+omelette.filling = Filling();
+
+omelette.filling.meat = "ham";
+
+print omelette.filling.meat;
