@@ -1,0 +1,9 @@
+// this code does not compile
+// it should fail twice with
+// Error at 'this': Can't use 'this' outside of a class.
+
+print this;
+
+fun notAMethod() {
+  print this;
+}
