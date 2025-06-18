@@ -1,0 +1,32 @@
+class Egotist {
+  speak() {
+    print this;
+  }
+}
+
+var method = Egotist().speak;
+method();
+
+class Cake {
+  taste() {
+    var adjective = "delicious";
+    print "The " + this.flavour + " cake is " + adjective + "!";
+  }
+}
+
+var cake = Cake();
+cake.flavour = "Nanaimo bar";
+cake.taste();
+
+class Thing {
+  getCallback() {
+    fun localFunction() {
+      print this;
+    }
+    
+    return localFunction;
+  }
+}
+
+var callback = Thing().getCallback();
+callback();
