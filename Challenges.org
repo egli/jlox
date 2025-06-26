@@ -445,7 +445,9 @@ var circle = Circle(4);
 print circle.area; // Prints roughly "50.2655".
 #+end_src
 
-** TODO Encapsulation of fields
+** DONE Encapsulation of fields
+CLOSED: [2025-06-26 Do 16:41]
+#+begin_quote
 Python and JavaScript allow you to freely access an object’s fields
 from outside of its own methods. Ruby and Smalltalk encapsulate
 instance state. Only methods on the class can access the raw fields,
@@ -456,3 +458,24 @@ per-member basis.
 
 What are the trade-offs between these approaches and why might a
 language prefer one or the other?
+#+end_quote
+
+The key trade-offs between open access (Python/JavaScript) vs encapsulation (Ruby/Smalltalk):
+
+Open Access:
++ Simpler, more flexible access to object state
++ Easier debugging and testing
++ Less boilerplate code
+- Can lead to tight coupling between objects
+- Makes it harder to change internal implementation
+- Risk of direct state manipulation bugs
+
+Encapsulation:
++ Better information hiding
++ Easier to maintain/change implementation details
++ More control over object state
+- Requires writing more accessor methods
+- Can be more verbose
+- May add complexity for simple use cases
+
+The choice often reflects the language's philosophy regarding safety vs flexibility.
