@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 class LoxInstance {
-    private LoxClass klass;
+    public LoxClass klass;
     private final Map<String, Object> fields = new HashMap<>();
 
     LoxInstance(LoxClass klass) {
@@ -14,6 +14,13 @@ class LoxInstance {
     Object get(Token name) {
 	if (fields.containsKey(name.lexeme)) {
 	    return fields.get(name.lexeme);
+	}
+
+	LoxClass metaclass = klass.klass;
+	LoxFunction staticMethod = null;
+	if (metaclass != null) {
+	    staticMethod = metaclass.findMethod(name.lexeme);
+	    if (staticMethod != null) return staticMethod.bind(klass);
 	}
 
 	LoxFunction method = klass.findMethod(name.lexeme);
