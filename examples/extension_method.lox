@@ -1,0 +1,28 @@
+class Dog {
+  bark() {
+    print "woof!";
+  }
+}
+
+fun quack() {
+  print "quack!";
+}
+
+var dog = Dog();
+dog.quack = quack;
+dog.quack();
+
+
+class Sheep {
+  speak() {
+    print "maa!";
+  }
+}
+
+fun hiss() {
+  print "hiss!";
+}
+
+var sheep = Sheep();
+sheep.speak = hiss;
+sheep.speak();
